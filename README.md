@@ -8,4 +8,4 @@ Each project should be in its own repertory. Also, try to comment your code.
 
 # Sources
 
-Castle 3D Model: [here]: https://open3dmodel.com/3d-models/medieval-castle-2_7077.html
+Castle 3D Model: https://open3dmodel.com/3d-models/medieval-castle-2_7077.html
