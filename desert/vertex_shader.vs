@@ -47,7 +47,7 @@ float fNoise(in vec3 p, in float amp, in float freq, in float pers, in int nbOct
 
 void main() {
     vec3 pos = position;
-    pos.z = fNoise(position, 20, 5, 0.25, 5);
+    pos.z = sin(pos.x)*10;
     gl_Position = projection * view * model * vec4(pos, 1);
     frag_tex_coords = pos.xy;
 }

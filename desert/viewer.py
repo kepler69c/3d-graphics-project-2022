@@ -7,45 +7,47 @@ import numpy as np                  # all matrix manipulations & OpenGL args
 from core import Shader, Viewer, Mesh, load
 from texture import Texture, Textured
 
-class Grille:
+class Grid(Mesh):
     """ Class for drawing a desert object """
     
     def __init__(self, shader, nb_circle_points=50):
         self.shader = shader
 
-        N = 20
-        M = 50
+        N = 100
 
         # positions
-        x_position = np.array((N*M, N*M))
-        y_position = np.array((N*M, N*M))
+        x_position = np.zeros((N, N))
+        y_position = np.zeros((N, N))
         #init x_position and y_position
-        for j in range(N*M):
-            for i in range(N*M):
-                x_position[j][i] = -250 + i*500/(N*M-1)
-                y_position[j][i] = -250 + i*500/(N*M-1)
+        for j in range(N):
+            for i in range(N):
+                x_position[j][i] = -250 + i*500/(N-1)
+                y_position[j][i] = -250 + j*500/(N-1)
 
-        z_position = np.zeros((N*M, N*M))
+        z_position = np.zeros((N, N)).flatten()
+        x_position = x_position.flatten()
+        y_position = y_position.flatten()
 
         position = np.vstack((x_position, y_position, z_position)).T
 
         # indexes
-        index = np.vstack((
-            np.vstack(position[:N*M-1][0],
-                [val for val in position[:N*M-1][1:N*M-1] for _ in (0, 1)],
-                position[:N*M-1][N*M-1]),
-            np.vstack(position[0][1:],
-                [val for val in position[1:N*M-1][1:] for _ in (0, 1)],
-                position[N*M-1][1:]),
-            [val for val in position[1:][:N*M-1] for _ in (0, 1)]
-        )).T.flatten()
+        mat = np.reshape(np.arange(N*N), (N,N))
 
-        # colors
-        color = np.array([[1, 0, 1], [0, 1, 1]])
-        color = np.vstack((color, (np.tile(np.arange(0, nb_circle_points * 2), (3, 1)) % 2).T))
-        color = np.array(color, 'f')
+        top = np.vstack([
+            mat[:-1][:-1].flatten(),
+            mat[1:][:-1].flatten(),
+            mat[:-1][1:].flatten(),
+        ]).T.flatten()
+
+        bottom = np.vstack([
+            mat[:-1][1:].flatten(),
+            mat[1:][:-1].flatten(),
+            mat[1:][1:].flatten(),
+        ]).T.flatten()
+
+        index = np.hstack([top, bottom])
         
-        attributes = dict(position=position, color=color)
+        attributes = dict(position=position)
         
         super().__init__(shader, attributes=attributes, index=index)
 
@@ -92,7 +94,7 @@ def main():
     viewer = Viewer()
     shader = Shader("vertex_shader.vs", "fragment_shader.fs")
 
-    #grille = Grille()
+    grid = Grid(shader)
 
     light_dir = (0, 1, 0)
     viewer.add(*[mesh for file in sys.argv[1:]
