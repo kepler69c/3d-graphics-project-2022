@@ -1,0 +1,48 @@
+# Blender 3.1.0 MTL File: 'None'
+# www.blender.org
+
+newmtl Material__25
+Ns 10.000005
+Ka 1.000000 1.000000 1.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd  C:\Users\berar\Desktop\.\Texture\body.png
+map_d  C:\Users\berar\Desktop\.\Texture\body.png
+
+newmtl Material__26
+Ns 10.000005
+Ka 1.000000 1.000000 1.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd  C:\Users\berar\Desktop\.\Texture\body2.png
+map_d  C:\Users\berar\Desktop\.\Texture\body2.png
+
+newmtl Material__27
+Ns 10.000005
+Ka 1.000000 1.000000 1.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd  C:\Users\berar\Desktop\.\Texture\wings.png
+map_d  C:\Users\berar\Desktop\.\Texture\wings.png
+
+newmtl wire_174186203
+Ns 32.000008
+Ka 1.000000 1.000000 1.000000
+Kd 0.682400 0.729400 0.796100
+Ks 0.350000 0.350000 0.350000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
