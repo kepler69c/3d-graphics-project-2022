@@ -14,4 +14,4 @@ Dragon 3D Model: https://www.turbosquid.com/3d-models/acnologia-3d-1442853
 
 Cactus 3D Model 1: https://free3d.com/fr/3d-model/-cactus-v1--424886.html
 
-Cactus 3D Model 2: https://free3d.com/fr/3d-model/cactus-79021.html
+Cactus 3D Model 2: https://www.cgtrader.com/free-3d-models/plant/other/century-cactus
