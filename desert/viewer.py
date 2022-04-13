@@ -6,6 +6,7 @@ import glfw  # lean window system wrapper for OpenGL
 import numpy as np  # all matrix manipulations & OpenGL args
 from core import Shader, Viewer, Mesh, load, Node
 from texture import Texture, Textured
+from transform import scale, translate
 
 class Desert(Textured):
     def __init__(self, shader, N, size):
@@ -71,16 +72,28 @@ class Grid(Mesh):
     def draw(self, primitives=GL.GL_TRIANGLES, **uniforms):
         super().draw(primitives=primitives, global_color=(0, 0, 0), **uniforms)
 
+class Castle(Node):
+    def __init__(self, shader, light_dir):
+        super().__init__()
+
+        self.body = Node(transform=translate(y=+10) @ scale(x=.01,y=.01,z=.01))
+        self.body.add(
+            *load("../Models/Castle/castle01.obj", shader, light_dir=light_dir)
+        )
+
+        self.add(self.body)
 
 # -------------- main program and scene setup --------------------------------
 def main():
     """create a window, add scene objects, then run rendering loop"""
     viewer = Viewer()
-    shader = Shader("vertex_shader.vs", "fragment_shader.fs")
+    shader1 = Shader("vertex_shader.vs", "fragment_shader.fs")
+    shader2 = Shader("vertex_shader_castle.vs", "fragment_shader_castle.fs")
 
     light_dir = (0, 1, 0)
 
-    viewer.add(Desert(shader, 750, 200))
+    viewer.add(Desert(shader1, 750, 1800))
+    viewer.add(Castle(shader2, light_dir))
 
     viewer.run()
 
