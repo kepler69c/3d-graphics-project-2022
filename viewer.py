@@ -7,7 +7,6 @@ import numpy as np                  # all matrix manipulations & OpenGL args
 from core import Shader, Viewer, Mesh, load
 from texture import Texture, Textured
 
-
 # -------------- Example textured plane class ---------------------------------
 class TexturedPlane(Textured):
     """ Simple first textured object """
