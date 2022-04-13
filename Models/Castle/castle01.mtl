@@ -222,8 +222,8 @@ newmtl dx_dx_th_mc_door_01
 	Kd 1.0000 1.0000 1.0000
 	Ks 0.0000 0.0000 0.0000
 	Ke 0.0000 0.0000 0.0000
-	map_Ka D:\Texture\250508\castle_pack\castle pack\b3d_x\sable.jpg
-	map_Kd D:\Texture\250508\castle_pack\castle pack\b3d_x\sable.jpg
+	map_Ka D:\Texture\250508\castle_pack\castle pack\b3d_x\vide.png
+	map_Kd D:\Texture\250508\castle_pack\castle pack\b3d_x\vide.png
 
 newmtl wire_192192192
 	Ns 32
