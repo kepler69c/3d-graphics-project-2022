@@ -6,8 +6,31 @@ import glfw                         # lean window system wrapper for OpenGL
 import numpy as np                  # all matrix manipulations & OpenGL args
 from core import Shader, Viewer, Mesh, load
 from texture import Texture, Textured
+from transform import identity
 
-class Grid(Mesh):
+class Node:
+    """ Scene graph transform and parameter broadcast node """
+    def __init__(self, children=(), transform=identity()):
+        self.transform = transform
+        self.world_transform = identity()
+        self.children = list(iter(children))
+
+    def add(self, *drawables):
+        """ Add drawables to this node, simply updating children list """
+        self.children.extend(drawables)
+
+    def draw(self, model=identity(), **other_uniforms):
+        """ Recursive draw, passing down updated model matrix. """
+        self.world_transform = model @ self.transform
+        for child in self.children:
+            child.draw(model=self.world_transform, **other_uniforms)
+
+    def key_handler(self, key):
+        """ Dispatch keyboard events to children with key handler """
+        for child in (c for c in self.children if hasattr(c, 'key_handler')):
+            child.key_handler(key)
+
+class Grid(Node):
     """ Class for drawing a desert object """
     
     def __init__(self, shader, nb_circle_points=50):
@@ -49,7 +72,7 @@ class Grid(Mesh):
         
         attributes = dict(position=position)
         
-        super().__init__(shader, attributes=attributes, index=index)
+        super().__init__()
 
 
     def draw(self, primitives=GL.GL_TRIANGLES, **uniforms):
@@ -96,6 +119,11 @@ def main():
 
     grid = Grid(shader)
 
+    terrain = Node()
+    terrain.add(grid)
+
+    viewer.add(terrain)
+
     light_dir = (0, 1, 0)
     viewer.add(*[mesh for file in sys.argv[1:]
         for mesh in load(file, shader, light_dir=light_dir)])
@@ -103,7 +131,7 @@ def main():
     if len(sys.argv) != 2:
         print('Usage:\n\t%s [3dfile]*\n\n3dfile\t\t the filename of a model in'
               ' format supported by assimp.' % (sys.argv[0],))
-        viewer.add(TexturedPlane(shader, "sable.jpg"))
+        #viewer.add(TexturedPlane(shader, "sable.jpg"))
 
     # start rendering loop
     viewer.run()
