@@ -6,7 +6,6 @@ uniform mat4 projection;
 in vec3 position;
 
 out vec2 frag_tex_coords;
-out float noise;
 
 float hash31(in vec3 p){
   return fract(sin(dot(p,vec3(12.9898,78.233,45.5432)))*43758.5453123);
