@@ -1,0 +1,188 @@
+# Blender 3.1.0 MTL File: 'None'
+# www.blender.org
+
+newmtl dx_dx_arc01
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd  C:\Users\berar\Desktop\Texture\arc019.jpg
+
+newmtl dx_dx_arc02
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd  C:\Users\berar\Desktop\Texture\arc14.jpg
+
+newmtl dx_dx_arc03
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd  C:\Users\berar\Desktop\Texture\arc18.jpg
+
+newmtl dx_dx_castle01
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd  C:\Users\berar\Desktop\Texture\castle.jpg
+
+newmtl dx_dx_cottage_roof01
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.627500 0.627500 0.627500
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd  C:\Users\berar\Desktop\Texture\cottage_roof.jpg
+
+newmtl dx_dx_ear2_tilepattern_bmp01
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd  C:\Users\berar\Desktop\Texture\ear2_tilepattern_bmp.bmp
+
+newmtl dx_dx_efl01
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd  C:\Users\berar\Desktop\Texture\efl2.jpg
+
+newmtl dx_dx_epil01
+Ns 39.000008
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.200000 0.200000 0.200000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd  C:\Users\berar\Desktop\Texture\epil1.jpg
+
+newmtl dx_dx_epil1_b01
+Ns 23.999998
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.210000 0.210000 0.210000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd  C:\Users\berar\Desktop\Texture\epil1_b.jpg
+
+newmtl dx_dx_est01
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd  C:\Users\berar\Desktop\Texture\est10.jpg
+
+newmtl dx_dx_est02
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd  C:\Users\berar\Desktop\Texture\est9.jpg
+
+newmtl dx_dx_flag01
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd  C:\Users\berar\Desktop\Texture\flag.jpg
+
+newmtl dx_dx_th_mc_door_01
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd  C:\Users\berar\Desktop\Texture\vide.png
+
+newmtl dx_dx_th_portugal_edit_lt01
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd  C:\Users\berar\Desktop\Texture\th_portugal_edit-lt.jpg
+
+newmtl dx_dx_ti_01
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd  C:\Users\berar\Desktop\Texture\ti_42.jpg
+
+newmtl dx_dx_window_withstone01
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd  C:\Users\berar\Desktop\Texture\window_withstone2.jpg
+
+newmtl wire_192192192
+Ns 32.000008
+Ka 1.000000 1.000000 1.000000
+Kd 0.752900 0.752900 0.752900
+Ks 0.350000 0.350000 0.350000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
