@@ -16,6 +16,8 @@ He's create by Alexandre Berard, Thibault Groot and Margot Duran.
 # Difficulties, possible extensions:
 
  - Create sphere to represent some tumble weed with a texture. We failed to create a sphere. But with a working program, it would have been interesting to roll it along the dunes
+ - Add some lights
+ - Add a class Skinned to have a skeleton of the dragon. With this addition, we could make the dragon do more different movements (for example: opening and closing its mouth) these could be more fluid and realistic
 
 # Sources:
 
