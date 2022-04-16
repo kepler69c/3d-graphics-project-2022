@@ -382,4 +382,10 @@ def main():
 
 
 if __name__ == "__main__":
+    print("\nCONTROLS:")
+    print("- LEFT / RIGHT: change dragon's rotation circle")
+    print("- MOUSE: allows you to move in the scene")
+    print("\npress ENTER to continue...")
+    input()
+
     main()  # main function keeps variables locally scoped
