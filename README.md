@@ -20,11 +20,11 @@ To exit the scene, press ESCAPE.
 
 # Features:
 
- - Desert with some dunes created by value noise
+ - Desert with some dunes created by value noise and shading
  - Randomly generated cactuses over the desert
  - Moving dragon. He planes around the castle in the sky and flaps its wings. You can control dragon's rotation circle by pressing the LEFT and RIGHT arrows on the keyboard
  - Light with some warm color
- - Skybox with a gradient from blue to white, the white being at the level of the horizon and with sun
+ - Skybox with a sun and gradient from blue to white, the white being at the level of the horizon
 
 ![scene image](https://github.com/kepler69c/3d-graphics-project-2022/blob/main/README_splash.png?raw=true "You can hear *grrr* noises from the distance")
 
