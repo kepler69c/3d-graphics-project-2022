@@ -2,21 +2,36 @@
 
 This project has for objective to create a Heroic Fantastic Land with OpenGL.
 
-He's create by Alexandre Berard, Thibault Groot and Margot Duran.
+Members: Alexandre Berard, Thibault Groot and Margot Duran.
+
+# How to use
+
+We assume you have installed the OpenGL python suite (PyOpenGL package for python3). No more packages are required.
+
+The only thing you have to do is to launch the following command on project's root:
+
+```
+./viewer.py
+```
+
+You can only move around with mouse control.
+
+To exit the scene, press ESCAPE.
 
 # Features:
 
  - Desert with some dunes created by value noise
- - Moving dragon and wing's dragon. He make a cercle in the sky and he flaps its wings. The size of the cercle can change if we press the arrows on the keyboard
+ - Randomly generated cactuses over the desert
+ - Moving dragon. He planes around the castle in the sky and flaps its wings. You can control dragon's rotation circle by pressing the LEFT and RIGHT arrows on the keyboard
  - Light with some warm color
- - Skybox with a gradient from blue to white, the white being at the level of the horizon
- - Sandstorm
- - Sun
+ - Skybox with a gradient from blue to white, the white being at the level of the horizon and with sun
+
+![scene image](https://github.com/kepler69c/3d-graphics-project-2022/blob/main/README_splash.png?raw=true "You can hear *grrr* noises from the distance")
 
 # Difficulties, possible extensions:
 
  - Create sphere to represent some tumble weed with a texture. We failed to create a sphere. But with a working program, it would have been interesting to roll it along the dunes
- - Add some lights
+ - Add some more lights
  - Add a class Skinned to have a skeleton of the dragon. With this addition, we could make the dragon do more different movements (for example: opening and closing its mouth) these could be more fluid and realistic
 
 # Sources:
