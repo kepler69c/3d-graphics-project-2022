@@ -44,6 +44,7 @@ class Sphere(Mesh):
         tmpIndices = np.array([])
 
         for i in range(subdivision):
+            pass
 
         tmpVertices = vertices
         tmpIndices = indices

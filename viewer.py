@@ -11,14 +11,90 @@ from animation import KeyFrameLoopControlNode, TransformKeyFrames
 from transform import scale, rotate, translate, quaternion, quaternion_from_euler
 
 
+class Skybox(Node):
+    def __init__(self, shader, size=1800.0):
+        super().__init__()
+
+        position_N = [
+            [-size / 2, 0, size / 2],
+            [size / 2, 0, size / 2],
+            [size / 2, size, size / 2],
+            [-size / 2, size, size / 2],
+        ]
+        position_S = [
+            [size / 2, 0, -size / 2],
+            [-size / 2, 0, -size / 2],
+            [-size / 2, size, -size / 2],
+            [size / 2, size, -size / 2],
+        ]
+        position_W = [
+            [-size / 2, 0, -size / 2],
+            [-size / 2, 0, size / 2],
+            [-size / 2, size, size / 2],
+            [-size / 2, size, -size / 2],
+        ]
+        position_E = [
+            [size / 2, 0, size / 2],
+            [size / 2, 0, -size / 2],
+            [size / 2, size, -size / 2],
+            [size / 2, size, size / 2],
+        ]
+        position_top = [
+            [-size / 2, size, -size / 2],
+            [size / 2, size, -size / 2],
+            [size / 2, size, size / 2],
+            [-size / 2, size, size / 2],
+        ]
+
+        tex_coord = [[0, 1], [1, 1], [1, 0], [0, 0]]
+
+        index = [1, 0, 2, 2, 0, 3]
+        index_top = [0, 1, 2, 0, 2, 3]
+
+        attributes_N = dict(position=position_N, tex_coord=tex_coord)
+        attributes_S = dict(position=position_S, tex_coord=tex_coord)
+        attributes_W = dict(position=position_W, tex_coord=tex_coord)
+        attributes_E = dict(position=position_E, tex_coord=tex_coord)
+        attributes_top = dict(position=position_top, tex_coord=tex_coord)
+
+        mesh_N = Mesh(shader, attributes=attributes_N, index=index)
+        mesh_S = Mesh(shader, attributes=attributes_S, index=index)
+        mesh_W = Mesh(shader, attributes=attributes_W, index=index)
+        mesh_E = Mesh(shader, attributes=attributes_E, index=index)
+        mesh_top = Mesh(shader, attributes=attributes_top, index=index_top)
+
+        tex_sides = Texture(
+            "./Models/Texture/ciel_1.png",
+            GL.GL_REPEAT,
+            *(GL.GL_LINEAR, GL.GL_LINEAR_MIPMAP_LINEAR),
+        )
+        tex_top = Texture(
+            "./Models/Texture/ciel_2.png",
+            GL.GL_REPEAT,
+            *(GL.GL_LINEAR, GL.GL_LINEAR_MIPMAP_LINEAR),
+        )
+
+        tex_N = Textured(mesh_N, diffuse_map=tex_sides)
+        tex_S = Textured(mesh_S, diffuse_map=tex_sides)
+        tex_W = Textured(mesh_W, diffuse_map=tex_sides)
+        tex_E = Textured(mesh_E, diffuse_map=tex_sides)
+        tex_top = Textured(mesh_top, diffuse_map=tex_top)
+
+        self.add(tex_N)
+        self.add(tex_S)
+        self.add(tex_W)
+        self.add(tex_E)
+        self.add(tex_top)
+
+    def draw(self, primitives=GL.GL_TRIANGLES, **uniforms):
+        super().draw(primitives=primitives, **uniforms)
+
+
 class Desert(Textured):
     """Class for drawing a desert object"""
 
-    def __init__(self, shader, light, N=750, size=1800):
+    def __init__(self, shader, light, N=750, size=1800.0):
         # prepare texture modes and light
-        self.wrap = GL.GL_REPEAT
-        self.filter = (GL.GL_LINEAR, GL.GL_LINEAR_MIPMAP_LINEAR)
-        self.file = "../Models/Texture/sable.jpg"
         self.light_dir = light[0]
         self.light_ambiant = light[1]
         self.light_diffuse = light[2]
@@ -27,7 +103,11 @@ class Desert(Textured):
         # setup plane mesh to be textured
         mesh = Grid(shader, N, size)
 
-        texture = Texture(self.file, self.wrap, *self.filter)
+        texture = Texture(
+            "./Models/Texture/sable.jpg",
+            GL.GL_REPEAT,
+            *(GL.GL_LINEAR, GL.GL_LINEAR_MIPMAP_LINEAR),
+        )
         super().__init__(mesh, diffuse_map=texture)
 
     def draw(self, primitives=GL.GL_TRIANGLES, **uniforms):
@@ -37,7 +117,7 @@ class Desert(Textured):
             light_ambiant=self.light_ambiant,
             light_diffuse=self.light_diffuse,
             light_specular=self.light_specular,
-            **uniforms
+            **uniforms,
         )
 
 
@@ -98,7 +178,7 @@ class Castle(Node):
         self.transform = translate(y=+10) @ scale(x=0.01, y=0.01, z=0.01)
         self.add(
             *load(
-                "../Models/Castle/castle_no_floor.obj",
+                "./Models/Castle/castle_no_floor.obj",
                 shader,
                 light_dir=light[0],
                 light_ambiant=light[1],
@@ -113,19 +193,19 @@ class Cactus(Node):
         super().__init__()
 
         tex_list = [
-            "../Models/Cactus1/10436_Cactus_v1_max2010_it2.obj",
-            "../Models/Cactus1/10436_Cactus_v1_max2010_it2.obj",
-            "../Models/Cactus1/10436_Cactus_v1_max2010_it2.obj",
-            "../Models/Cactus1/10436_Cactus_v1_max2010_it2.obj",
-            "../Models/Cactus1/10436_Cactus_v1_max2010_it2.obj",
-            "../Models/Cactus1/10436_Cactus_v1_max2010_it2.obj",
-            "../Models/Cactus1/10436_Cactus_v1_max2010_it2.obj",
-            "../Models/Cactus2/Models/SW01_1.obj",
-            "../Models/Cactus2/Models/SW01_2.obj",
-            "../Models/Cactus2/Models/SW01_3.obj",
-            "../Models/Cactus2/Models/SW01_4.obj",
-            "../Models/Cactus2/Models/SW01_5.obj",
-            "../Models/Cactus2/Models/SW01_6.obj",
+            "./Models/Cactus1/10436_Cactus_v1_max2010_it2.obj",
+            "./Models/Cactus1/10436_Cactus_v1_max2010_it2.obj",
+            "./Models/Cactus1/10436_Cactus_v1_max2010_it2.obj",
+            "./Models/Cactus1/10436_Cactus_v1_max2010_it2.obj",
+            "./Models/Cactus1/10436_Cactus_v1_max2010_it2.obj",
+            "./Models/Cactus1/10436_Cactus_v1_max2010_it2.obj",
+            "./Models/Cactus1/10436_Cactus_v1_max2010_it2.obj",
+            "./Models/Cactus2/Models/SW01_1.obj",
+            "./Models/Cactus2/Models/SW01_2.obj",
+            "./Models/Cactus2/Models/SW01_3.obj",
+            "./Models/Cactus2/Models/SW01_4.obj",
+            "./Models/Cactus2/Models/SW01_5.obj",
+            "./Models/Cactus2/Models/SW01_6.obj",
         ]
 
         self.transform = (
@@ -167,7 +247,7 @@ class Dragon(Node):
         self.body = KeyFrameLoopControlNode(translate_keys, rotate_keys, scale_keys)
         self.body.add(
             *load(
-                "../Models/Dragon/dargeon.obj",
+                "./Models/Dragon/dargeon.obj",
                 shader,
                 light_dir=light[0],
                 light_ambiant=light[1],
@@ -189,7 +269,7 @@ class Dragon(Node):
         )
         self.left_wing.add(
             *load(
-                "../Models/Dragon/left-wing.obj",
+                "./Models/Dragon/left-wing.obj",
                 shader,
                 light_dir=light[0],
                 light_ambiant=light[1],
@@ -211,7 +291,7 @@ class Dragon(Node):
         )
         self.right_wing.add(
             *load(
-                "../Models/Dragon/right-wing.obj",
+                "./Models/Dragon/right-wing.obj",
                 shader,
                 light_dir=light[0],
                 light_ambiant=light[1],
@@ -223,7 +303,7 @@ class Dragon(Node):
         self.body.add(self.left_wing)
         self.body.add(self.right_wing)
 
-        self.transform = translate(0, 130, 0) @ scale(.5, .5, .5)
+        self.transform = translate(0, 130, 0) @ scale(0.5, 0.5, 0.5)
 
         self.add(self.body)
 
@@ -259,6 +339,7 @@ def main():
     """create a window, add scene objects, then run rendering loop"""
     viewer = Viewer()
     shader_desert = Shader("vertex_shader_desert.vs", "fragment_shader.fs")
+    shader_skybox = Shader("vertex_shader_sky.vs", "fragment_shader_sky.fs")
     shader_obj = Shader("vertex_shader_objects.vs", "fragment_shader.fs")
 
     light_dir = (0.0, 1.0, 0.0)
@@ -291,6 +372,11 @@ def main():
     viewer.add(Cactus(shader_obj, light, (348, 15, 614)))
 
     viewer.add(Dragon(shader_obj, light))
+
+    viewer.add(Skybox(shader_skybox))
+
+    viewer.trackball.distance = 1000
+    viewer.trackball.rotation = quaternion_from_euler(50, 60, 50)
 
     viewer.run()
 
